@@ -235,27 +235,29 @@ export function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
                 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="font-serif text-3xl md:text-4xl text-white mb-2">{universe.title}</h3>
-                    <p className="text-white/70 font-light mb-6">{universe.desc}</p>
-                    
-                    <div className="flex items-center gap-6 text-sm text-white/60">
-                      <div className="flex items-center gap-2">
-                        <GitBranch className="w-4 h-4 text-accent" />
-                        <span>{universe.branches} branches</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-secondary" />
-                        <span>{universe.contributors} creators</span>
-                      </div>
-                      <div className="flex items-center gap-2 ml-auto">
-                        <Activity className="w-4 h-4 text-primary" />
-                        <span>{universe.time}</span>
+                <Link href="/universe/ashfall-kingdoms">
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                    <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <h3 className="font-serif text-3xl md:text-4xl text-white mb-2">{universe.title}</h3>
+                      <p className="text-white/70 font-light mb-6">{universe.desc}</p>
+                      
+                      <div className="flex items-center gap-6 text-sm text-white/60">
+                        <div className="flex items-center gap-2">
+                          <GitBranch className="w-4 h-4 text-accent" />
+                          <span>{universe.branches} branches</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4 text-secondary" />
+                          <span>{universe.contributors} creators</span>
+                        </div>
+                        <div className="flex items-center gap-2 ml-auto">
+                          <Activity className="w-4 h-4 text-primary" />
+                          <span>{universe.time}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
