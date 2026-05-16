@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, GitBranch, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 interface NodePanelProps {
   selectedNode: any | null;
@@ -8,6 +9,8 @@ interface NodePanelProps {
 }
 
 export function NodePanel({ selectedNode, onClose }: NodePanelProps) {
+  const [, setLocation] = useLocation();
+
   return (
     <AnimatePresence>
       {selectedNode && (
@@ -26,7 +29,7 @@ export function NodePanel({ selectedNode, onClose }: NodePanelProps) {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed top-0 right-0 bottom-0 w-full max-w-md z-50 bg-card/95 backdrop-blur-xl border-l border-border/50 shadow-2xl overflow-y-auto"
           >
-            <div className="p-8">
+            <div className="p-8 flex flex-col min-h-full">
               <Button
                 variant="ghost"
                 size="icon"
@@ -76,7 +79,12 @@ export function NodePanel({ selectedNode, onClose }: NodePanelProps) {
               )}
 
               <div className="flex flex-col gap-4 mt-auto">
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-lg shadow-[0_0_20px_rgba(55,48,163,0.3)]">
+                <Button 
+                  onClick={() => {
+                    const mode = selectedNode.id.startsWith('s') ? 'shadow' : 'tree';
+                    setLocation(`/universe/ashfall-kingdoms/node/new?branch=${selectedNode.id}&mode=${mode}`);
+                  }}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-lg shadow-[0_0_20px_rgba(55,48,163,0.3)]">
                   Explore Branch
                 </Button>
                 {selectedNode.nodes && (

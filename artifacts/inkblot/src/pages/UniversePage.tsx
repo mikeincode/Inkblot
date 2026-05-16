@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, PenTool } from "lucide-react";
 import { UniverseTree } from "@/components/universe/UniverseTree";
 import { NodePanel } from "@/components/universe/NodePanel";
 import { TimelineRibbon } from "@/components/universe/TimelineRibbon";
@@ -14,6 +14,7 @@ import { TrunkNode, BranchNode } from "@/components/universe/types";
 import ashfallImg from "@assets/ashfall-kingdoms.png";
 
 export function UniversePage() {
+  const [, setLocation] = useLocation();
   const [mode, setMode] = useState<"tree" | "shadow">("tree");
   const [selectedNode, setSelectedNode] = useState<TrunkNode | BranchNode | null>(null);
 
@@ -21,12 +22,27 @@ export function UniversePage() {
 
   return (
     <div
-      className="min-h-screen transition-colors duration-1000"
+      className="min-h-screen transition-colors duration-1000 relative"
       style={{
         backgroundColor: isShadow ? "#030106" : "hsl(var(--background))",
         color: isShadow ? "#e9d5ff" : "hsl(var(--foreground))",
       }}
     >
+      {/* FAB - Grow a Node */}
+      <div className="fixed bottom-8 right-8 z-40">
+        <button
+          onClick={() => setLocation(`/universe/ashfall-kingdoms/node/new?mode=${mode}`)}
+          className={`flex items-center gap-3 px-6 py-4 rounded-full font-serif text-lg tracking-wide transition-all duration-300 hover:scale-105 shadow-xl ${
+            isShadow 
+              ? "bg-[#3b0764] text-[#fdf4ff] shadow-[0_0_30px_rgba(147,51,234,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] border border-[#c026d3]/50" 
+              : "bg-indigo-900 text-indigo-50 shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_40px_rgba(79,70,229,0.6)] border border-indigo-500/50"
+          }`}
+        >
+          <PenTool className="w-5 h-5" />
+          {isShadow ? "Release into Shadow" : "Grow a Node"}
+        </button>
+      </div>
+
       {/* Back Nav */}
       <nav className="absolute top-0 left-0 w-full z-20 p-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
         <Link
