@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import { Home } from "@/pages/Home";
 import { UniversePage } from "@/pages/UniversePage";
 import { NodeEditorPage } from "@/pages/NodeEditorPage";
+import { CanonReviewPage } from "@/pages/CanonReviewPage";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -15,6 +16,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/universe/:id/node/new" component={NodeEditorPage} />
+      <Route path="/universe/:id/review" component={CanonReviewPage} />
       <Route path="/universe/:id" component={UniversePage} />
       <Route component={NotFound} />
     </Switch>

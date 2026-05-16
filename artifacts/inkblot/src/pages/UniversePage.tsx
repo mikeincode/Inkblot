@@ -53,6 +53,12 @@ export function UniversePage() {
           <ArrowLeft className="w-4 h-4" />
           All Universes
         </Link>
+        <Link 
+          href="/universe/ashfall-kingdoms/review"
+          className="text-indigo-300/80 hover:text-indigo-200 transition-colors font-medium text-sm flex items-center gap-2"
+        >
+          Keeper's Review →
+        </Link>
       </nav>
 
       {/* HEADER BANNER */}
