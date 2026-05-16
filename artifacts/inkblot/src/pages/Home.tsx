@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Globe, GitMerge, GitBranch, GitCommit, Infinity, ArrowRight, Activity, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -92,6 +92,7 @@ function SectionHeading({ title, subtitle, align = "center" }: { title: string, 
 }
 
 export function Home() {
+  const [, setLocation] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -125,7 +126,7 @@ export function Home() {
               </a>
             ))}
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-none tracking-wide shadow-[0_0_20px_rgba(55,48,163,0.3)] hover:shadow-[0_0_30px_rgba(55,48,163,0.5)] transition-all">
+          <Button onClick={() => setLocation("/create")} className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-none tracking-wide shadow-[0_0_20px_rgba(55,48,163,0.3)] hover:shadow-[0_0_30px_rgba(55,48,163,0.5)] transition-all">
             Enter Inkblot
           </Button>
         </div>
@@ -165,7 +166,7 @@ export function Home() {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Button size="lg" className="h-14 px-8 text-lg bg-primary hover:bg-primary/90 text-primary-foreground rounded-none shadow-[0_0_30px_rgba(55,48,163,0.4)]">
+            <Button onClick={() => setLocation("/create")} size="lg" className="h-14 px-8 text-lg bg-primary hover:bg-primary/90 text-primary-foreground rounded-none shadow-[0_0_30px_rgba(55,48,163,0.4)]">
               Enter Inkblot <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-border hover:bg-white/5 rounded-none">

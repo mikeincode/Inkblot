@@ -7,6 +7,7 @@ import { Home } from "@/pages/Home";
 import { UniversePage } from "@/pages/UniversePage";
 import { NodeEditorPage } from "@/pages/NodeEditorPage";
 import { CanonReviewPage } from "@/pages/CanonReviewPage";
+import { CreateUniversePage } from "@/pages/CreateUniversePage";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -15,6 +16,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/create" component={CreateUniversePage} />
       <Route path="/universe/:id/node/new" component={NodeEditorPage} />
       <Route path="/universe/:id/review" component={CanonReviewPage} />
       <Route path="/universe/:id" component={UniversePage} />
