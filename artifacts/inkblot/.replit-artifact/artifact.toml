@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Inkblot"
+version = "1.0.0"
+id = "artifacts/inkblot"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24249
+
+[services.development]
+run = "pnpm --filter @workspace/inkblot run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/inkblot", "run", "build" ]
+publicDir = "artifacts/inkblot/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24249"
+BASE_PATH = "/"

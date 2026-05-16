@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "KTqcfoXLuwqfwdlgpugGR"
+uri = "file://attached_assets/ashfall-kingdoms.png"
+type = "image"
+title = "Ashfall Kingdoms cover"
+
+[[generated]]
+id = "VCApVV2XRdLGZkwGPz634"
+uri = "file://attached_assets/neon-hollow.png"
+type = "image"
+title = "Neon Hollow cover"
+
+[[generated]]
+id = "LGMRTRp0h-8dDya_ITfyE"
+uri = "file://attached_assets/eclipse-protocol.png"
+type = "image"
+title = "Eclipse Protocol cover"
+
+[[generated]]
+id = "Upnl-JmyjUuyNs8R70Q0Y"
+uri = "file://attached_assets/hollow-sea.png"
+type = "image"
+title = "The Hollow Sea cover"
