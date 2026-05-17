@@ -126,9 +126,14 @@ export function Home() {
               </a>
             ))}
           </div>
-          <Button onClick={() => setLocation("/create")} className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-none tracking-wide shadow-[0_0_20px_rgba(55,48,163,0.3)] hover:shadow-[0_0_30px_rgba(55,48,163,0.5)] transition-all">
-            Enter Inkblot
-          </Button>
+          <div className="flex items-center gap-6">
+            <Link href="/profile/lorekeeper" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden md:block">
+              Profile
+            </Link>
+            <Button onClick={() => setLocation("/create")} className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-none tracking-wide shadow-[0_0_20px_rgba(55,48,163,0.3)] hover:shadow-[0_0_30px_rgba(55,48,163,0.5)] transition-all">
+              Enter Inkblot
+            </Button>
+          </div>
         </div>
       </nav>
 
