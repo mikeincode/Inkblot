@@ -92,6 +92,18 @@ export function NodePanel({ selectedNode, onClose }: NodePanelProps) {
                     Canonize
                   </Button>
                 )}
+                
+                {selectedNode.type === "Branch" && (
+                  <div className="text-center mt-2">
+                    <Button 
+                      variant="ghost" 
+                      onClick={() => setLocation(`/universe/ashfall-kingdoms/branch/${selectedNode.id}/chamber`)}
+                      className="text-muted-foreground hover:text-foreground font-serif italic text-sm tracking-wide h-auto p-2"
+                    >
+                      Enter Chamber &rarr;
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
