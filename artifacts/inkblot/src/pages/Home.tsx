@@ -121,9 +121,15 @@ export function Home() {
           </div>
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(link => (
-              <a key={link} href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                {link}
-              </a>
+              link === "Community" ? (
+                <Link key={link} href="/factions" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  {link}
+                </Link>
+              ) : (
+                <a key={link} href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  {link}
+                </a>
+              )
             ))}
           </div>
           <div className="flex items-center gap-6">

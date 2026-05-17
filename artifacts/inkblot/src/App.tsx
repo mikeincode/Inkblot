@@ -10,6 +10,8 @@ import { CanonReviewPage } from "@/pages/CanonReviewPage";
 import { CreateUniversePage } from "@/pages/CreateUniversePage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { BranchChamberPage } from "@/pages/BranchChamberPage";
+import { FactionPage } from "@/pages/FactionPage";
+import { FactionsDirectoryPage } from "@/pages/FactionsDirectoryPage";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/universe/:id/branch/:branchId/chamber" component={BranchChamberPage} />
       <Route path="/universe/:id" component={UniversePage} />
       <Route path="/profile/:username" component={ProfilePage} />
+      <Route path="/factions" component={FactionsDirectoryPage} />
+      <Route path="/factions/:id" component={FactionPage} />
       <Route component={NotFound} />
     </Switch>
   );
